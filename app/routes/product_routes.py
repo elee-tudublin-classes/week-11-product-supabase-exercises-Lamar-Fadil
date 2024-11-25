@@ -5,7 +5,7 @@ from fastapi.templating import Jinja2Templates
 
 # import service functions
 from app.services.product_service import *
-from app.services.category_service import getAllCategories
+from app.services.category_service import getAllCategories, getCategory
 
 from app.models.product import Product
 
@@ -30,6 +30,18 @@ async def getProfuctUpdateForm(request: Request, id: int):
 
     # note passing of parameters to the page
     return templates.TemplateResponse("product/partials/product_update_form.html", {"request": request, "product": getProduct(id) })
+
+
+# @router.get("/{id}", response_class=HTMLResponse)
+# async def getAllCategories(request: Request, id: int):
+
+#     products = getAllProducts()
+#     categories = getCategory(id)
+
+#     # note passing of parameters to the page
+#     return templates.TemplateResponse("product/products.html", {"request": request, "products": products, "categories": categories})
+
+
 
 # https://fastapi.tiangolo.com/tutorial/request-form-models/#pydantic-models-for-forms
 @router.put("/")
