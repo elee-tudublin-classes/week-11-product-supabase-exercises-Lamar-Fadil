@@ -6,3 +6,6 @@ import json
 def getAllCategories() :
     categories = dataGetCategories()
     return categories
+
+def getCategory(id) :
+    return dataGetCategory(id)
